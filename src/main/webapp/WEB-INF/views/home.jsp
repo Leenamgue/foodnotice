@@ -82,16 +82,16 @@ $(document).ready(function(){
 
 
 <form id="login-form" name="form1" method="POST">
+	<c:if test="${msg == 'failure'}">
+	<div style="text-align: center;color: red;bottom: -200px;position: relative;">아이디와 비밀번호가 맞지않습니다.</div>
+	</c:if>
 	<h2 style="text-align: center">로그인</h2>
 	<input type="text" name="id" id="id" placeholder="아이디">
 	<input type="password" name="password" id="password" placeholder="비밀번호">
-	<button  class="login">로그인</button>
+	<button  class="login" style="margin-top: 50px;">로그인</button>
 	<button formaction="/signIn" >회원가입</button>
 </form>
 
-<c:if test="${msg == 'failure'}">
-	<div style="color:red">아이디와 비밀번호가 맞지않습니다.</div>
-</c:if>
 
 </body>
 </html>

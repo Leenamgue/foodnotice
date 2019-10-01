@@ -165,8 +165,10 @@ $(document).ready(function(){
             <div class="content">              		
                   <div class="mg10">
                   		<div class="" >
-                  			<input class="search" type="text" name="id" id="id" placeholder="뭐 먹을까" ">
-                        	<button style="margin-left: -5.5px;height:66.5px;border:1px">찾기</button>
+                  			<input class="search" type="text" name="id" id="id" placeholder="뭐 먹을까">
+                  			<form style="position: relative;left: 90%;top: -60px;">
+                        		<button formaction="/search" style="margin-left: -5.5px;height:60px;border:1px">찾기</button>
+                        	</form>
                         </div>
                         <div class="" style="margin-top: 50px;">
 	                    	<form>
