@@ -1,10 +1,12 @@
-package com.java.board;
+package com.java.board.bean;
 
 public class BoardBean {
 	private String no;
 	private String title;
 	private String content;
 	private String name;
+	private String subcontent;
+	
 	
 	public BoardBean() {
 	}
@@ -38,6 +40,13 @@ public class BoardBean {
 	}
 	public void setNo(String no) {
 		this.no = no;
+	}
+	
+	public String getSubcontent() {
+		return subcontent;
+	}
+	public void setSubcontent(String subcontent) {
+		this.subcontent = subcontent;
 	}
 	
 	

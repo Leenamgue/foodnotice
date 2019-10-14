@@ -1,4 +1,4 @@
-package com.java.board;
+package com.java.board.bean;
 
 public class UserInfo {
 	

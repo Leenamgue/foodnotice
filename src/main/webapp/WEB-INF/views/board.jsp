@@ -1,4 +1,4 @@
-<%@page import="com.java.board.BoardBean"%>
+<%@page import="com.java.board.bean.BoardBean"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -141,7 +141,7 @@ $(document).ready(function(){
                     <div class="nav1">
                         <ul class="ul1">
                         	<img style="float: left;width: 70px;" src="/resources/img/go1.gif">	                        	
-                            <li style="cursor: pointer; font-size:2em;font-family: 'Hi Melody', cursive; ">야먹자</a></li>
+                            <li onclick="location.href='/'" style="cursor: pointer; font-size:2em;font-family: 'Hi Melody', cursive; ">야먹자</a></li>
                         </ul>                                                
                         <ul class="ul3" style="float: right ">                          	
                           	<form action="/logout">
@@ -159,14 +159,16 @@ $(document).ready(function(){
                         	
                         
                     <h2 style="color: white; text-align: center"></h2>
-                    
+                    <form>
+						<button id="opinion" type="submit" formaction="/notice" style="float:right; border:1px">의견</button>
+					</form>
                 </div>
             </div>
             <div class="content">              		
                   <div class="mg10">
                   		<div class="" >
                   			<input class="search" type="text" name="id" id="id" placeholder="뭐 먹을까">
-                  			<form style="position: relative;left: 90%;top: -60px;">
+                  			<form style="position: relative;left: 90%;top: -60px;width: 50px;">
                         		<button formaction="/search" style="margin-left: -5.5px;height:60px;border:1px">찾기</button>
                         	</form>
                         </div>
@@ -179,30 +181,6 @@ $(document).ready(function(){
 	                    </div>                                          		                
                   </div>              
             </div>
-        </div>		
-		<table>
-			<th>번호</th>
-			<th>제목</th>
-			<th>내용</th>
-			<th>작성자</th>
-		<%
-			 List<BoardBean> list = (List<BoardBean>) request.getAttribute("list");
-		
-			if(list != null){
-			int size =list.size();
-			for(int i = size ; i > 0 ; i--){
-		%>	<tr onclick="title_click(this)">	
-				<td><%=list.get(i-1).getNo() %></td>
-				<td><a href="/detail?no=<%=i %>" name="no" value="<%=list.get(i-1).getNo() %>"><%=list.get(i-1).getTitle() %></a></td>
-				<td><%=list.get(i-1).getContent() %></td>
-				<td><%=list.get(i-1).getName() %></td>
-			<tr>
-		<%
-			 }
-			}
-		%>
-		</table>
-		
-		
+        </div>			
 </body>
 </html>

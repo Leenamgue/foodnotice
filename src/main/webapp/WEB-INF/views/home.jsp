@@ -24,6 +24,7 @@ $(document).ready(function(){
 			document.form1.method="post";
 			document.form1.action="/";
 			document.form1.submit();
+			
 		}
 	});
 });
