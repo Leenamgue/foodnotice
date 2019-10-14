@@ -11,7 +11,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	if('<%=request.getAttribute("id")%>' != 'null'){
+	if('<%=session.getAttribute("id")%>' != 'null'){
 
 		$("#login").addClass("dn");
 		
@@ -220,7 +220,7 @@ $(document).ready(function(){
                            </ul>                                                
                            <ul class="ul3" style="float: right ">                          	
                                 <form action="/logout">
-                                    <li id="lgnin" style=""><%=request.getAttribute("id")%>님 </li>
+                                    <li id="lgnin" style=""><%=session.getAttribute("id")%>님 </li>
                                     <button type="submit" id="logout" style="margin-top: 5px;border:1px;cursor: pointer;">로그아웃</button>
                                 </form>	 	 
                                 <form action="/login">

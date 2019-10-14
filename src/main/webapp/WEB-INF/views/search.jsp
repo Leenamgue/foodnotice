@@ -12,9 +12,16 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
-	console.log("Ba");
-	<% UserInfo ui = (UserInfo) session.getAttribute("logIn");%>
-	console.log(<%=(UserInfo) session.getAttribute("logIn")%>);
+	if('<%=session.getAttribute("id")%>' != 'null'){
+
+		$("#login").addClass("dn");
+		
+		
+	}else{
+		$("#logout").addClass("dn");
+		$("#lgnin").addClass("dn");
+		$("#wirte").addClass("dn");
+	}
 });
 
 
@@ -171,7 +178,7 @@ $(document).ready(function(){
                            </ul>                                                
                            <ul class="ul3" style="float: right ">                          	
                                 <form action="/logout">
-                                    <li id="lgnin" style=""><%=request.getAttribute("id")%>님 </li>
+                                    <li id="lgnin" style=""><%=session.getAttribute("id")%>님 </li>
                                     <button type="submit" id="logout" style="margin-top: 5px;border:1px;cursor: pointer;">로그아웃</button>
                                 </form>	 	 
                                 <form action="/login">

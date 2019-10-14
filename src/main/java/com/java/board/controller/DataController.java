@@ -35,6 +35,7 @@ public class DataController {
 		if(result) {
 			System.out.println(user);
 			httpSession.setAttribute("logIn", user);
+			httpSession.setAttribute("id", id);
 			System.out.println("test: " + httpSession.getAttribute("logIn"));
 			mav.setViewName("redirect:/board");
 		}else{
@@ -60,7 +61,8 @@ public class DataController {
 		UserInfo userinfo = (UserInfo) hs.getAttribute("logIn");
 		System.out.println(userinfo);		
 		String id = userinfo.getId();		
-		System.out.println();req.setAttribute("id", id);		
+		System.out.println();
+		req.setAttribute("id", id);	
 		System.out.println(id);		
 		return "board";		
 	}
@@ -70,10 +72,13 @@ public class DataController {
 		System.out.println("222222");
 			
 			 //세션 가져오기 userinfo 로 넣어 줬기때문에 변환함
-			List<BoardBean> list = session.selectList("test.select", bb); 
-			
+			List<BoardBean> list = session.selectList("test.select", bb);
+			System.out.println(httpSession.getAttribute("id"));
+			HttpSession hsession = request.getSession();
+//			String id = httpSession.getAttribute("id").toString();
+			System.out.println(hsession.getAttribute("id"));
 			request.setAttribute("list", list); //게시글 내용 가져 오기
-		
+//			request.setAttribute("id", id);
 			return "search";
 	}
 	
@@ -127,7 +132,7 @@ public class DataController {
 		
 		if(session.selectOne("test.sign_check", UI) == null) {
 			result = false;
-		}else if((boolean) session.selectOne("test.sign_check", UI)) {
+		}else if( (boolean) session.selectOne("test.sign_check", UI)) {
 			result = true;
 		}
 		try {
