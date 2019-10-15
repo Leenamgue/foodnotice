@@ -16,7 +16,7 @@ public class ViewController {
 	@GetMapping("/")
 	public String home(HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("get!");
-		String id = request.getSession().getAttribute("id").toString();
+//		String id = request.getSession().getAttribute("id").toString();
 		return "board";
 	}
 	
